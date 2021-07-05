@@ -37,6 +37,9 @@ public class PlayerControl : MonoBehaviour
 				movePoint = ray.GetPoint(enter);
 
 				player.LookAt(movePoint);
+				Vector3 rotate = player.rotation.eulerAngles;
+				rotate.x = 0f;
+				player.rotation = Quaternion.Euler(rotate);
 			}
 		}
 		if (movePoint != Vector3.zero)

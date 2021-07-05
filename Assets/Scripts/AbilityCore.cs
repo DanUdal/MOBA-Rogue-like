@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,17 +12,17 @@ public class AbilityCore : ScriptableObject
 
     IEnumerator WaitForCooldown()
     {
-        if (onCD <= 0f)
+        while (onCD > 0)
         {
-            onCD = 0;
-        }
-        if (onCD > 0)
-        {
-            onCD -= Time.deltaTime;
-        }
-        else
-        {
-            yield return null;
+            if (onCD <= 0f)
+            {
+                onCD = 0;
+            }
+            if (onCD > 0)
+            {
+                onCD -= Time.deltaTime;
+                yield return null;
+            }
         }
     }
 
@@ -36,6 +37,8 @@ public class AbilityCore : ScriptableObject
         {
             Ability();
             onCD = cooldown;
+            IEnumerator enumerator = WaitForCooldown();
+            CoroutineHandler.instance.StartCoroutine(enumerator);
         }
     }
 }
