@@ -13,6 +13,12 @@ public class PlayerControl : MonoBehaviour
 	Vector3 movePoint = Vector3.zero;
 	[SerializeField]
 	float moveSpeed = 2.0f;
+	[SerializeField]
+	float baseHealth, healthGrowth, mana, healthRegen, manaRegen, attackDamage, magicPower, attackSpeed, attackRange;
+	[SerializeField]
+	int level;
+	[SerializeField]
+	Ability[] abilities;
     // Start is called before the first frame update
     void Start()
     {

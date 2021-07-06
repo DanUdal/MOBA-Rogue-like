@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "Abilities/AbilityCore", order = 1)]
-public class AbilityCore : ScriptableObject
+public class AbilityCore : Ability
 {
     public float cooldown;
     public float manaCost;

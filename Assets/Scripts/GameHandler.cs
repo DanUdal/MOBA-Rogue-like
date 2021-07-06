@@ -10,7 +10,7 @@ public class GameHandler : MonoBehaviour
 	[SerializeField]
 	float camMoveSpeed = 10f;
 	[SerializeField]
-	float edgeSize = 10f;
+	float edgeSize = 30f;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,19 +21,19 @@ public class GameHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Input.mousePosition.x > Screen.width - edgeSize)
+		if ((Input.mousePosition.x > Screen.width - edgeSize) && (Input.mousePosition.x < Screen.width))
 		{
 			camMove.x += camMoveSpeed * Time.deltaTime;
 		}
-		if (Input.mousePosition.y > Screen.height - edgeSize)
+		if ((Input.mousePosition.y > Screen.height - edgeSize) && (Input.mousePosition.y < Screen.height))
 		{
 			camMove.y += camMoveSpeed * Time.deltaTime;
 		}
-		if (Input.mousePosition.x < edgeSize)
+		if ((Input.mousePosition.x < edgeSize) && (Input.mousePosition.x > 0))
 		{
 			camMove.x -= camMoveSpeed * Time.deltaTime;
 		}
-		if (Input.mousePosition.y < edgeSize)
+		if ((Input.mousePosition.y < edgeSize) && (Input.mousePosition.y > 0))
 		{
 			camMove.y -= camMoveSpeed * Time.deltaTime;
 		}
